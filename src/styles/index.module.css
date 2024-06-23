@@ -1,6 +1,8 @@
 .appContainer {
   display: flex;
-  height: 100vh;
+  height: 100%;
+  background-color: white;
+
 }
 
 .contactListContainer {
@@ -9,7 +11,11 @@
 
 .conversationContainer {
   width: 70%;
+
 }
+
+
+
 
 @media (max-width: 768px) {
   .contactListContainer, .conversationContainer {

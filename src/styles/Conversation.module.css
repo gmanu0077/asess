@@ -16,6 +16,7 @@
   background-color: #f5f5f5;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  width:100%
 }
 
 .headerTitle {
@@ -67,11 +68,12 @@
 .messages {
   padding: 20px;
   flex-grow: 1;
-  overflow-y: auto;
+  overflow-y: scroll;
   background-color: white;
-  width: 94%;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  width: 90%;
+  /* border-bottom-left-radius: 10px; */
+  height: 70%;
+  /* border-bottom-right-radius: 10px; */
 }
 
 .message {
@@ -84,6 +86,7 @@
 .you {
   align-self: flex-end;
   text-align: right;
+  margin-left:auto;
 }
 
 .other {
@@ -140,12 +143,12 @@
 }
 
 .backButton {
-  background: none;
+  background: #f5f5f5;
   border: none;
   cursor: pointer;
   color: #007bff;
   font-size: 20px;
-  margin-right: 20px;
+
 }
 
 @media (max-width: 768px) {
@@ -156,5 +159,14 @@
 
   .hideOnMobile {
     display: none;
+  }
+  .messages{
+   height: 70%;
+   width: 89%;
+  }
+  .inputContainer{
+    position: absolute;
+    bottom: 0;
+    width: 93%;
   }
 }

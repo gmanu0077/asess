@@ -4,11 +4,12 @@ import styles from '../../styles/Conversation.module.css';
 
 const Conversation = ({ chat, user, onBack }) => {
   return (
-    <div className={styles.conversationContainer}>
-      <div className={styles.header}>
-        <button onClick={onBack} className={styles.backButton}>
+    <div className={styles.conversationContainer} >
+      <div style={{display:'flex'}}>
+      <button onClick={onBack} className={styles.backButton}>
           <i className="fa fa-arrow-left"></i>
         </button>
+      <div className={styles.header}> 
         <div className={styles.headerTitle}>
           <img src={user.userpic} alt="Profile" className={styles.profilePic} />
           <div className={styles.profileInfo}>
@@ -23,6 +24,8 @@ const Conversation = ({ chat, user, onBack }) => {
           <i className="fa fa-ellipsis-v"></i>
         </div>
       </div>
+      </div>
+     
       <div className={styles.messages}>
         {chat.map((message, index) => (
           <div key={index}>

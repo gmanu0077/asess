@@ -10,7 +10,7 @@ const initialData = [
     name: 'Sam',
     unreadCount: 1,
     profilePictureURL:
-      'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIEd2zxEc_4IQ1jHyniHLECu15zRjkHTBJzA&s',
     chat: [
       {
         user1: {
@@ -140,6 +140,7 @@ const HomePage = () => {
   const [selectedContact, setSelectedContact] = useState(null);
   const [selectedUser, setSelectedUser] = useState({});
   const [showChatList, setShowChatList] = useState(true);
+  const [showConversation,setShowConversation]=useState(false)
 
   const handleSelectContact = (userId) => {
     setSelectedContact(userId);
@@ -151,6 +152,7 @@ const HomePage = () => {
       )
     );
     setShowChatList(false);
+    setShowConversation(true)
   };
 
   const handleMarkAsUnread = (userId) => {
@@ -178,7 +180,7 @@ const HomePage = () => {
 
   return (
     <div className={styles.appContainer}>
-      <div className={`${styles.contactListContainer} ${!showChatList && styles.hideOnMobile}`}>
+      <div className={`${styles.contactListContainer} ${showChatList && styles.hideOnMobile}`}>
         <ContactList
           contacts={contacts}
           onSelectContact={handleSelectContact}
@@ -186,8 +188,11 @@ const HomePage = () => {
           onDeleteConversation={handleDeleteConversation}
         />
       </div>
-      <div className={`${styles.conversationContainer} ${showChatList && styles.hideOnMobile}`}>
-        {selectedChat && <Conversation chat={selectedChat} user={selectedUser} onBack={() => setShowChatList(true)} />}
+      <div className={`${styles.conversationContainer} ${showConversation && styles.hideOnMobile}`}>
+        {selectedChat && <Conversation chat={selectedChat} user={selectedUser} onBack={() =>{ 
+          setShowChatList(true);
+          setShowConversation(false);
+        }} />}
       </div>
     </div>
   );
