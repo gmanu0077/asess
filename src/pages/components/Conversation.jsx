@@ -5,7 +5,7 @@ import styles from '../../styles/Conversation.module.css';
 const Conversation = ({ chat, user, onBack }) => {
   return (
     <div className={styles.conversationContainer} >
-      <div style={{display:'flex'}}>
+      <div className='mainhead' style={{display:'flex'}}>
       <button onClick={onBack} className={styles.backButton}>
           <i className="fa fa-arrow-left"></i>
         </button>
